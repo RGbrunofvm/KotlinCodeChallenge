@@ -23,31 +23,28 @@ class MainTest {
         }
         val users: List<User> = objectMapper.readValue(response.asString())
 
-        assertEquals(10, users.size, "La API debería devolver 10 usuarios")
+        assertEquals(10, users.size, "The api must return 10 users")
     }
 
 
     @Test
     fun `filter users by city`() {
-        // Configurar la URL base
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com"
 
-        // Realizar la solicitud GET
+
         val response: Response = RestAssured.given()
             .get("/users")
             .then()
-            .statusCode(200) // Asegurarse de que la respuesta sea 200 OK
+            .statusCode(200)
             .extract()
             .response()
 
-        // Deserializar el JSON en una lista de usuarios
+
         val objectMapper = jacksonObjectMapper()
         val users: List<User> = objectMapper.readValue(response.asString())
 
-        // Filtrar usuarios cuya ciudad sea "Gwenborough"
         val filteredUsers = users.filter { it.address.city == "Gwenborough" }
 
-        // Validar los resultados
         assertEquals(1, filteredUsers.size, "Debe haber un usuario en Gwenborough")
         assertEquals("Leanne Graham", filteredUsers[0].name)
     }
