@@ -1,5 +1,6 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.10' // Este plugin es obligatorio
 }
 
 group = 'org.example'
@@ -10,12 +11,19 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation 'io.rest-assured:rest-assured:5.3.0'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test:1.9.10'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 }
+
 
 test {
     useJUnitPlatform()
 }
+
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(17) // Asegúrate de usar Java 17 o superior
 }
