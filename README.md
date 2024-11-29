@@ -27,7 +27,7 @@ Clone this repository to your local environment:
 ```bash
 git clone <repository-url>
 cd <repository-directory>
-
+```
 ---
 
 ## Running the Application
@@ -36,12 +36,14 @@ cd <repository-directory>
 To fetch and filter user data:
 ```bash
 ./gradlew run
-
+```
 Expected output
-
+```
 Filtered Users:
 Name: Leanne Graham, Email: Sincere@april.biz, City: Gwenborough
-
+```
 ### Step 2: View Test Results
 After running the tests, open the detailed report:
+```
 build/reports/tests/test/index.html
+```
